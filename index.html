@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CreatorLux Studio — Luxury YouTube Creator Tools &amp; SEO Suite</title>
+  <meta name="description" content="Free premium creator tools for YouTubers: title generators, description builders, keyword helpers, Shorts planners, and character counters.">
+  <meta name="keywords" content="YouTube creator tools, title generator, tags helper, YouTube SEO, shorts helper, thumbnail text planner">
+  <meta name="author" content="CreatorLux Studio">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="CreatorLux Studio — Luxury YouTube Creator Suite">
+  <meta property="og:description" content="High-impact, free creator tools to optimize videos, craft viral titles, and grow your channel.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://creatorlux.studio">
+  
+  <style>
+    /* ==========================================================================
+       1. CSS VARIABLES & LUXURY DESIGN SYSTEM
+       ========================================================================== */
+    :root {
+      --bg-base: #06070a;
+      --bg-surface: #0c0e14;
+      --bg-card: rgba(16, 19, 29, 0.72);
+      --bg-glass: rgba(25, 29, 44, 0.45);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(147, 51, 234, 0.6);
+      
+      --accent-purple: #9333ea;
+      --accent-indigo: #6366f1;
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-pink: #ec4899;
+      
+      --grad-primary: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%);
+      --grad-glow: radial-gradient(circle at 50% 0%, rgba(147, 51, 234, 0.18), transparent 70%);
+      --grad-card-glow: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 9999px;
+      
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
+      --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--border-glass);
+      --shadow-glow: 0 0 35px rgba(139, 92, 246, 0.25);
+      
+      --transition-fast: 0.18s ease;
+      --transition-norm: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reset & Base Setup */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      background-image: var(--grad-glow);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+      outline: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       2. NAVIGATION
+       ========================================================================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(6, 7, 10, 0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-glass);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--grad-primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+    }
+
+    .brand-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: #ffffff;
+    }
+
+    .brand span {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      transition: color var(--transition-fast);
+      font-weight: 500;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .fav-counter-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .fav-counter-badge:hover {
+      border-color: rgba(236, 72, 153, 0.5);
+      color: #f472b6;
+    }
+
+    .fav-counter-badge svg {
+      width: 14px;
+      height: 14px;
+      fill: #f472b6;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      border: 1px solid transparent;
+      user-select: none;
+    }
+
+    .btn-primary {
+      background: var(--grad-primary);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(124, 58, 237, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(124, 58, 237, 0.5);
+    }
+
+    .btn-outline {
+      background: var(--bg-glass);
+      border-color: var(--border-glass);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 0.82rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    /* ==========================================================================
+       3. HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding: 85px 0 50px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(147, 51, 234, 0.12);
+      border: 1px solid rgba(147, 51, 234, 0.35);
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #d8b4fe;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 34px;
+      line-height: 1.6;
+    }
+
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-glass);
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* ==========================================================================
+       4. DASHBOARD CONTROLS (SEARCH & CATEGORIES)
+       ========================================================================== */
+    .dashboard-toolbar {
+      padding: 30px 0 20px;
+      position: sticky;
+      top: 72px;
+      background: var(--bg-base);
+      z-index: 900;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .toolbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .search-wrapper {
+      position: relative;
+      flex: 1;
+      min-width: 260px;
+      max-width: 420px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-glass);
+      padding: 12px 16px 12px 42px;
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+      transition: var(--transition-fast);
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-indigo);
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.25);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      fill: var(--text-dim);
+    }
+
+    .category-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .pill-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-glass);
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .pill-btn:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--text-main);
+    }
+
+    .pill-btn.active {
+      background: var(--accent-purple);
+      color: #fff;
+      border-color: var(--accent-purple);
+      box-shadow: 0 0 14px rgba(168, 85, 247, 0.4);
+    }
+
+    /* ==========================================================================
+       5. TOOLS GRID & CARDS
+       ========================================================================== */
+    .tools-section {
+      padding: 40px 0 80px;
+    }
+
+    .section-title-wrap {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+    }
+
+    .tool-card {
+      background: var(--bg-card);
+      background-image: var(--grad-card-glow);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+      position: relative;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(147, 51, 234, 0.35);
+      box-shadow: var(--shadow-glow), var(--shadow-card);
+    }
+
+    .tool-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .tool-header-info {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .tool-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glass);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #c084fc;
+      flex-shrink: 0;
+    }
+
+    .tool-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .tool-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .tool-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-dim);
+      margin-top: 2px;
+      display: inline-block;
+    }
+
+    .fav-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 8px;
+      color: var(--text-dim);
+      transition: color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .fav-btn:hover {
+      color: #f472b6;
+      transform: scale(1.15);
+    }
+
+    .fav-btn.favorited {
+      color: #f472b6;
+    }
+
+    .fav-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .tool-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      min-height: 42px;
+    }
+
+    /* Form Fields Inside Cards */
+    .tool-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      background: rgba(9, 11, 16, 0.8);
+      border: 1px solid var(--border-glass);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      color: var(--text-main);
+      transition: border-color var(--transition-fast);
+      width: 100%;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--accent-indigo);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* Tool Outputs */
+    .tool-output {
+      margin-top: auto;
+      border-top: 1px solid var(--border-glass);
+      padding-top: 16px;
+    }
+
+    .output-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .output-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+
+    .output-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      font-size: 0.88rem;
+      max-height: 220px;
+      overflow-y: auto;
+      word-break: break-word;
+      line-height: 1.5;
+    }
+
+    .output-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .output-list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.86rem;
+    }
+
+    .output-list-item span {
+      flex: 1;
+    }
+
+    .empty-hint {
+      color: var(--text-dim);
+      font-size: 0.84rem;
+      font-style: italic;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      background: rgba(147, 51, 234, 0.15);
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      color: #e9d5ff;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Live Length Bars */
+    .meter-container {
+      margin-top: 8px;
+    }
+
+    .meter-bar {
+      height: 8px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      margin-top: 6px;
+    }
+
+    .meter-fill {
+      height: 100%;
+      width: 0%;
+      transition: width var(--transition-fast), background var(--transition-fast);
+      background: var(--accent-cyan);
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ==========================================================================
+       6. HOW IT WORKS & LUXURY FEATURES
+       ========================================================================== */
+    .how-section {
+      padding: 60px 0;
+      background: rgba(12, 14, 20, 0.6);
+      border-top: 1px solid var(--border-glass);
+      border-bottom: 1px solid var(--border-glass);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      padding: 24px;
+      border-radius: var(--radius-md);
+      position: relative;
+    }
+
+    .step-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .step-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       7. TOAST NOTIFICATION
+       ========================================================================== */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(18, 20, 31, 0.95);
+      border: 1px solid rgba(147, 51, 234, 0.4);
+      color: var(--text-main);
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(100px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--transition-norm);
+      z-index: 9999;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .toast-icon {
+      color: #10b981;
+    }
+
+    /* ==========================================================================
+       8. FOOTER & MODALS
+       ========================================================================== */
+    .footer {
+      padding: 60px 0 30px;
+      background: #040507;
+      border-top: 1px solid var(--border-glass);
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      max-width: 320px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      transition: color var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--text-main);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-glass);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .disclaimer-banner {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      margin-bottom: 30px;
+      font-size: 0.84rem;
+      color: #fca5a5;
+      line-height: 1.5;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 992px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+      .toolbar-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .search-wrapper {
+        max-width: 100%;
+      }
+      .category-pills {
+        overflow-x: auto;
+        padding-bottom: 6px;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">
+          <!-- Play icon -->
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <span>CreatorLux Studio</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#tools-dashboard" class="nav-link">Creator Tools</a></li>
+        <li><a href="#tool-thumbnail" class="nav-link">Thumbnail Studio</a></li>
+        <li><a href="#tool-tags" class="nav-link">SEO Tools</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#about-footer" class="nav-link">About</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="fav-counter-badge" id="fav-counter-btn" onclick="filterByFavorites()" title="View Favorited Tools">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <span id="fav-count">0</span> Saved
+        </div>
+        <a href="#tools-dashboard" class="btn btn-primary btn-sm">Start Creating</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Next-Gen Creator Suite 2026</div>
+      <h1>Create Better. Rank Higher.<br><span>Grow Faster.</span></h1>
+      <p class="hero-subtitle">
+        Free creator tools to help YouTubers create better content, optimize videos, and grow their channels. Fast, client-side, zero subscriptions.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#tools-dashboard" class="btn btn-primary">Explore Free Tools</a>
+        <a href="#how-it-works" class="btn btn-outline">See How It Works</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Production Tools</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100% Free</div>
+          <div class="stat-label">No API Keys Needed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Instant</div>
+          <div class="stat-label">Client-Side Speed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Privacy First</div>
+          <div class="stat-label">Runs in Your Browser</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       DASHBOARD CONTROLS (SEARCH & FILTER TABS)
+       ========================================================================== -->
+  <section class="dashboard-toolbar" id="tools-dashboard">
+    <div class="container toolbar-inner">
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input type="text" id="tool-search" class="search-input" placeholder="Search any creator tool (e.g., tags, title, length)..." oninput="filterTools()">
+      </div>
+
+      <ul class="category-pills">
+        <li><button class="pill-btn active" data-category="all" onclick="selectCategory('all')">All Tools</button></li>
+        <li><button class="pill-btn" data-category="seo" onclick="selectCategory('seo')">YouTube SEO</button></li>
+        <li><button class="pill-btn" data-category="shorts" onclick="selectCategory('shorts')">Shorts &amp; Media</button></li>
+        <li><button class="pill-btn" data-category="brainstorm" onclick="selectCategory('brainstorm')">Brainstorming</button></li>
+        <li><button class="pill-btn" data-category="counter" onclick="selectCategory('counter')">Text &amp; Length</button></li>
+        <li><button class="pill-btn" data-category="favorites" onclick="selectCategory('favorites')">★ Favorites</button></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MAIN TOOLS SECTION (10 INTERACTIVE PRODUCTION TOOLS)
+       ========================================================================== -->
+  <main class="tools-section">
+    <div class="container">
+      
+      <div class="disclaimer-banner">
+        <strong>Creator Note:</strong> All generated results, titles, keywords, and templates are crafted as strategic starting points. Review and customize them according to your specific niche, audience voice, and video content. Tools do not guarantee rankings or views.
+      </div>
+
+      <div class="section-title-wrap">
+        <h2 class="section-title">Interactive Studio Tools</h2>
+        <p class="section-desc">Select any utility below to instantly generate, calculate, or format YouTube video assets.</p>
+      </div>
+
+      <div class="tools-grid" id="tools-container">
+
+        <!-- TOOL 1: YouTube Title Generator -->
+        <article class="tool-card" id="tool-title" data-category="seo brainstorm" data-id="tool-title">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <div class="tool-icon">
+                <svg viewBox="0 0 24 24"><path d="M5 4v3h5.5v12h3V7H19V4z"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-title">YouTube Title Generator</h3>
+                <span class="tool-badge">SEO &amp; High CTR</span>
+              </div>
+            </div>
+            <button class="fav-btn" onclick="toggleFavorite('tool-title')" title="Favorite Tool">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </button>
+          </div>
+          <p class="tool-desc">Generate proven click-worthy title frameworks based on your specific video topic and hook style.</p>
+          <div class="tool-form">
+            <div class="form-group">
+              <label class="form-label" for="title-topic">Video Topic / Subject</label>
+              <input type="text" id="title-topic" class="form-input" placeholder="e.g. Mechanical Keyboards, AI Video Editing">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="title-style">Video Angle / Style</label>
+              <select id="title-style" class="form-select">
+                <option value="how-to">How-To / Step-by-Step Tutorial</option>
+                <option value="listicle">Numbered Listicle / Top Picks</option>
+                <option value="curiosity">High-Curiosity / Psychological Gap</option>
+                <option value="challenge">Extreme Challenge / 24-Hour Experiment</option>
+                <option value="mistakes">Avoid Mistakes / Warning</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" onclick="generateTitles()">Generate Titles</button>
+          </div>
+          <div class="tool-output">
+            <div class="output-header">
+              <span class="output-label">Generated Ideas</span>
+              <button class="btn btn-outline btn-sm" onclick="copyList('title-results-list')">Copy All</button>
+            </div>
+            <div class="output-box" id="title-output-box">
+              <ul class="output-list" id="title-results-list">
+                <li class="empty-hint">Enter your topic and click Generate Titles</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOOL 2: YouTube Description Builder -->
+        <article class="tool-card" id="tool-description" data-category="seo" data-id="tool-description">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <div class="tool-icon">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-title">Description Builder</h3>
+                <span class="tool-badge">Structured SEO</span>
+              </div>
+            </div>
+            <button class="fav-btn" onclick="toggleFavorite('tool-description')" title="Favorite Tool">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </button>
+          </div>
+          <p class="tool-desc">Build a full YouTube video description complete with hook, chapters, links, and disclaimers.</p>
+          <div class="tool-form">
+            <div class="form-group">
+              <label class="form-label" for="desc-title">Video Title</label>
+              <input type="text" id="desc-title" class="form-input" placeholder="e.g. 5 Coding Habits to Build in 2026">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="desc-summary">Core Value / 2-Line Summary</label>
+              <input type="text" id="desc-summary" class="form-input" placeholder="In this breakdown, I share the habits that changed my workflow.">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="desc-cta">Call-to-Action Link / Resource</label>
+              <input type="text" id="desc-cta" class="form-input" placeholder="e.g. Free Template: https://yourlink.com">
+            </div>
+            <button class="btn btn-primary" onclick="buildDescription()">Build Description</button>
+          </div>
+          <div class="tool-output">
+            <div class="output-header">
+              <span class="output-label">Description Template</span>
+              <button class="btn btn-outline btn-sm" onclick="copyText('desc-output-box')">Copy Template</button>
+            </div>
+            <div class="output-box" id="desc-output-box" style="white-space: pre-wrap;">
+              <span class="empty-hint">Fill in the inputs and click Build Description</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOOL 3: Tags & Keyword Helper -->
+        <article class="tool-card" id="tool-tags" data-category="seo" data-id="tool-tags">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <div class="tool-icon">
+                <svg viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-title">Tags &amp; Keyword Helper</h3>
+                <span class="tool-badge">Metadata SEO</span>
+              </div>
+            </div>
+            <button class="fav-btn" onclick="toggleFavorite('tool-tags')" title="Favorite Tool">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </button>
+          </div>
+          <p class="tool-desc">Extract relevant broad, specific, and long-tail tag combinations ready for YouTube Studio.</p>
+          <div class="tool-form">
+            <div class="form-group">
+              <label class="form-label" for="tags-input">Target Topic / Keyword</label>
+              <input type="text" id="tags-input" class="form-input" placeholder="e.g. Python for Beginners, Home Gym Setup">
+            </div>
+            <button class="btn btn-primary" onclick="generateTags()">Generate Keyword Tags</button>
+          </div>
+          <div class="tool-output">
+            <div class="output-header">
+              <span class="output-label">Keyword Suggestions</span>
+              <button class="btn btn-outline btn-sm" onclick="copyCommaTags()">Copy Comma-Separated</button>
+            </div>
+            <div class="output-box" id="tags-output-box">
+              <div class="empty-hint">Enter your topic to generate tags</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOOL 4: YouTube Shorts Helper -->
+        <article class="tool-card" id="tool-shorts" data-category="shorts brainstorm" data-id="tool-shorts">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <div class="tool-icon">
+                <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-title">YouTube Shorts Helper</h3>
+                <span class="tool-badge">Vertical Video</span>
+              </div>
+            </div>
+            <button class="fav-btn" onclick="toggleFavorite('tool-shorts')" title="Favorite Tool">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </button>
+          </div>
+          <p class="tool-desc">Get fast, under-50-character punchy titles tailored for vertical feeds plus high-velocity hashtags.</p>
+          <div class="tool-form">
+            <div class="form-group">
+              <label class="form-label" for="shorts-topic">Shorts Topic / Core Action</label>
+              <input type="text" id="shorts-topic" class="form-input" placeholder="e.g. Secret Productivity Hack, Instant Coffee Recipe">
+            </div>
+            <button class="btn btn-primary" onclick="generateShortsIdeas()">Generate Shorts Package</button>
+          </div>
+          <div class="tool-output">
+            <div class="output-header">
+              <span class="output-label">Shorts Titles &amp; Feed Tags</span>
+              <button class="btn btn-outline btn-sm" onclick="copyText('shorts-output-box')">Copy All</button>
+            </div>
+            <div class="output-box" id="shorts-output-box" style="white-space: pre-wrap;">
+              <span class="empty-hint">Enter your shorts concept above</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOOL 5: Thumbnail Text Planner -->
+        <article class="tool-card" id="tool-thumbnail" data-category="shorts brainstorm" data-id="tool-thumbnail">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <div class="tool-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-title">Thumbnail Text Planner</h3>
+                <span class="tool-badge">CTR Psychology</span>
+              </div>
+            </div>
+            <button class="fav-btn" onclick="toggleFavorite('tool-thumbnail')" title="Favorite Tool">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </button>
+          </div>
+          <p class="tool-desc">Never repeat your title on your thumbnail. Get ultra-short (2–4 words) curiosity hooks that drive clicks.</p>
+          <div class="tool-form">
+            <div class="form-group">
+              <label class="form-label" for="thumb-topic">Video Premise / Conflict</label>
+              <input type="text" id="thumb-topic" class="form-input" placeholder="e.g. Testing cheap vs expensive camera">
+            </div>
+            <button class="btn btn-primary" onclick="generateThumbnailText()">Plan Thumbnail Hooks</button>
+          </div>
+          <div class="tool-output">
+            <div class="output-header">
+              <span class="output-label">High-Contrast Micro-Copy</span>
+              <button class="btn btn-outline btn-sm" onclick="copyList('thumb-results-list')">Copy All</button>
+            </div>
+            <div class="output-box" id="thumb-output-box">
+              <ul class="output-list" id="thumb-results-list">
+                <li class="empty-hint">Enter your premise to see short visual phrases</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOOL 6: Hashtag Generator -->
+        <article class="tool-card" id="tool-hashtags" data-category="seo" data-id="tool-hashtags">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <div class="tool-icon">
+                <svg viewBox="0 0 24 24"><path d="M20 10V8h-4V4h-2v4h-4V4H8v4H4v2h4v4H4v2h4v4h2v-4h4v4h2v-4h4v-2h-4v-4h4zm-6 4h-4v-4h4v4z"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-title">Hashtag Generator</h3>
+                <span class="tool-badge">Discoverability</span>
+              </div>
+            </div>
+            <button class="fav-btn" onclick="toggleFavorite('tool-hashtags')" title="Favorite Tool">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </button>
+          </div>
+          <p class="tool-desc">Generate relevant, formatted hashtags ready to paste directly into your YouTube upload box or description.</p>
+          <div class="tool-form">
+            <div class="form-group">
+              <label class="form-label" for="hashtag-topic">Topic or Niche</label>
+              <input type="text" id="hashtag-topic" class="form-input" placeholder="e.g. Budget Travel, Web Development">
+            </div>
+            <button class="btn btn-primary" onclick="generateHashtags()">Generate Hashtags</button>
+          </div>
+          <div class="tool-output">
+            <div class="output-header">
+              <span class="output-label">Hashtag Cloud</span>
+              <button class="btn btn-outline btn-sm" onclick="copyHashtags()">Copy String</button>
+            </div>
+            <div class="output-box" id="hashtag-output-box">
+              <div class="empty-hint">Enter your niche to build hashtags</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOOL 7: Video Idea Generator -->
+        <article class="tool-card" id="tool-ideas" data-category="brainstorm" data-id="tool-ideas">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <div class="tool-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-title">Video Idea Generator</h3>
+                <span class="tool-badge">Brainstorming</span>
+              </div>
+            </div>
+            <button class="fav-btn" onclick="toggleFavorite('tool-ideas')" title="Favorite Tool">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </button>
+          </div>
+          <p class="tool-desc">Select your channel niche to unlock structured, production-ready concepts with clear narrative hooks.</p>
+          <div class="tool-form">
+            <div class="form-group">
+              <label class="form-label" for="niche-select">Channel Niche</label>
+              <select id="niche-select" class="form-select">
+                <option value="tech">Technology &amp; Gadgets</option>
+                <option value="gaming">Gaming &amp; Esports</option>
+                <option value="vlogging">Lifestyle &amp; Vlogging</option>
+                <option value="education">Education &amp; Science</option>
+                <option value="finance">Personal Finance &amp; Business</option>
+                <option value="entertainment">Pop Culture &amp; Entertainment</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" onclick="generateVideoIdeas()">Generate Concepts</button>
+          </div>
+          <div class="tool-output">
+            <div class="output-header">
+              <span class="output-label">Concepts &amp; Hooks</span>
+              <button class="btn btn-outline btn-sm" onclick="copyList('ideas-results-list')">Copy All</button>
+            </div>
+            <div class="output-box" id="ideas-output-box">
+              <ul class="output-list" id="ideas-results-list">
+                <li class="empty-hint">Choose a niche and click Generate Concepts</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOOL 8: Title Length Checker -->
+        <article class="tool-card" id="tool-title-length" data-category="counter seo" data-id="tool-title-length">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <div class="tool-icon">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-title">Title Length Checker</h3>
+                <span class="tool-badge">Live Metric</span>
+              </div>
+            </div>
+            <button class="fav-btn" onclick="toggleFavorite('tool-title-length')" title="Favorite Tool">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </button>
+          </div>
+          <p class="tool-desc">Test your video title in real-time. Keep within the recommended 45–65 character mobile safe cutoff.</p>
+          <div class="tool-form">
+            <div class="form-group">
+              <label class="form-label" for="live-title-input">Type or Paste Title</label>
+              <input type="text" id="live-title-input" class="form-input" placeholder="Type title here to analyze length..." oninput="checkTitleLength()">
+            </div>
+          </div>
+          <div class="tool-output">
+            <div class="meter-container">
+              <div class="stats-row">
+                <span>Characters: <strong id="title-char-count">0</strong> / 100</span>
+                <span id="title-status-tag" style="font-weight:600; color:var(--text-dim);">Empty</span>
+              </div>
+              <div class="meter-bar">
+                <div class="meter-fill" id="title-meter-fill"></div>
+              </div>
+            </div>
+            <p id="title-advice-text" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">
+              Optimal title length is 45 to 65 characters to prevent truncation on YouTube mobile app.
+            </p>
+          </div>
+        </article>
+
+        <!-- TOOL 9: Description Character Counter -->
+        <article class="tool-card" id="tool-desc-counter" data-category="counter seo" data-id="tool-desc-counter">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <div class="tool-icon">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-title">Description Counter</h3>
+                <span class="tool-badge">Character &amp; Word Meter</span>
+              </div>
+            </div>
+            <button class="fav-btn" onclick="toggleFavorite('tool-desc-counter')" title="Favorite Tool">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </button>
+          </div>
+          <p class="tool-desc">Analyze your YouTube description length against the 5,000 character maximum, word count, and lines.</p>
+          <div class="tool-form">
+            <div class="form-group">
+              <label class="form-label" for="live-desc-input">Paste Video Description</label>
+              <textarea id="live-desc-input" class="form-textarea" placeholder="Paste your draft description here..." oninput="checkDescMetrics()"></textarea>
+            </div>
+          </div>
+          <div class="tool-output">
+            <div class="stats-row">
+              <span>Characters: <strong id="desc-char-count">0</strong> / 5,000</span>
+              <span>Words: <strong id="desc-word-count">0</strong></span>
+            </div>
+            <div class="stats-row" style="margin-top: 6px;">
+              <span>Lines: <strong id="desc-line-count">0</strong></span>
+              <span>Links detected: <strong id="desc-link-count">0</strong></span>
+            </div>
+            <div class="meter-bar" style="margin-top: 10px;">
+              <div class="meter-fill" id="desc-meter-fill"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOOL 10: YouTube Channel Name Ideas -->
+        <article class="tool-card" id="tool-channel-names" data-category="brainstorm" data-id="tool-channel-names">
+          <div class="tool-header">
+            <div class="tool-header-info">
+              <div class="tool-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-title">Channel Name Ideas</h3>
+                <span class="tool-badge">Branding Suite</span>
+              </div>
+            </div>
+            <button class="fav-btn" onclick="toggleFavorite('tool-channel-names')" title="Favorite Tool">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </button>
+          </div>
+          <p class="tool-desc">Discover catchy, brandable channel names styled by theme: Minimalist, Tech, Media, or Creator.</p>
+          <div class="tool-form">
+            <div class="form-group">
+              <label class="form-label" for="channel-keyword">Core Focus / Name Base</label>
+              <input type="text" id="channel-keyword" class="form-input" placeholder="e.g. Pixel, Zen, Craft, Nomad">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="channel-vibe">Vibe / Brand Style</label>
+              <select id="channel-vibe" class="form-select">
+                <option value="modern">Modern / Clean Tech</option>
+                <option value="creative">Creative / Studio</option>
+                <option value="dynamic">Punchy / High Energy</option>
+                <option value="luxury">Luxury / Premium Media</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" onclick="generateChannelNames()">Generate Channel Names</button>
+          </div>
+          <div class="tool-output">
+            <div class="output-header">
+              <span class="output-label">Brand Suggestions</span>
+              <button class="btn btn-outline btn-sm" onclick="copyList('channel-results-list')">Copy All</button>
+            </div>
+            <div class="output-box" id="channel-output-box">
+              <ul class="output-list" id="channel-results-list">
+                <li class="empty-hint">Enter your keyword and click Generate Channel Names</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       HOW IT WORKS SECTION
+       ========================================================================== -->
+  <section class="how-section" id="how-it-works">
+    <div class="container">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <h2 class="section-title">How CreatorLux Works</h2>
+        <p class="section-desc">Professional creator optimization in 3 straightforward steps, built with zero overhead.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3>Select Your Utility</h3>
+          <p>Choose from title generators, metadata helpers, length counters, or thumbnail planners designed specifically for YouTube's current algorithms.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3>Tailor Your Angles</h3>
+          <p>Input your target topic and audience hooks. Our client-side algorithms instantly generate high-converting variations with zero delay.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3>One-Click Copy &amp; Publish</h3>
+          <p>Click any copy button to directly paste structured assets into YouTube Studio, schedule your uploads, and maintain consistent output quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer" id="about-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span>CreatorLux Studio</span>
+          </div>
+          <p>A high-performance YouTube optimization suite engineered for ambitious creators, editors, and digital agencies.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Core Utilities</h4>
+          <ul class="footer-links">
+            <li><a href="#tool-title">Title Generator</a></li>
+            <li><a href="#tool-tags">Keyword &amp; Tags Helper</a></li>
+            <li><a href="#tool-shorts">Shorts Producer</a></li>
+            <li><a href="#tool-thumbnail">Thumbnail Copy Planner</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Optimization</h4>
+          <ul class="footer-links">
+            <li><a href="#tool-title-length">Title Character Meter</a></li>
+            <li><a href="#tool-desc-counter">Description Checker</a></li>
+            <li><a href="#tool-hashtags">Hashtag Cloud</a></li>
+            <li><a href="#tool-channel-names">Channel Brand Namer</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platform &amp; Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#tools-dashboard">Browse All Tools</a></li>
+            <li><a href="#how-it-works">Workflow Guide</a></li>
+            <li><a href="#about-footer">Privacy: Zero Data Stored</a></li>
+            <li><a href="#about-footer">Terms: 100% Free Open Tool</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 CreatorLux Studio. Developed for independent creators worldwide.</div>
+        <div>Independent platform not affiliated with or endorsed by YouTube or Google LLC.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FLOATING TOAST COMPONENT
+       ========================================================================== -->
+  <div class="toast" id="lux-toast">
+    <svg class="toast-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+    </svg>
+    <span id="toast-message">Copied to clipboard!</span>
+  </div>
+
+  <!-- ==========================================================================
+       VANILLA JAVASCRIPT LOGIC
+       ========================================================================== -->
+  <script>
+    /* --------------------------------------------------------------------------
+       FAVORITES & LOCAL STORAGE SYSTEM
+       -------------------------------------------------------------------------- */
+    let favorites = [];
+
+    function initFavorites() {
+      try {
+        const stored = localStorage.getItem('creatorlux_favs');
+        if (stored) {
+          favorites = JSON.parse(stored);
+        }
+      } catch (e) {
+        favorites = [];
+      }
+      updateFavUI();
+    }
+
+    function toggleFavorite(toolId) {
+      const idx = favorites.indexOf(toolId);
+      if (idx > -1) {
+        favorites.splice(idx, 1);
+        showToast("Removed from favorites");
+      } else {
+        favorites.push(toolId);
+        showToast("Saved to favorites!");
+      }
+      try {
+        localStorage.setItem('creatorlux_favs', JSON.stringify(favorites));
+      } catch (e) {}
+      updateFavUI();
+    }
+
+    function updateFavUI() {
+      document.querySelectorAll('.tool-card').forEach(card => {
+        const id = card.dataset.id;
+        const btn = card.querySelector('.fav-btn');
+        if (btn) {
+          if (favorites.includes(id)) {
+            btn.classList.add('favorited');
+          } else {
+            btn.classList.remove('favorited');
+          }
+        }
+      });
+      const countEl = document.getElementById('fav-count');
+      if (countEl) countEl.textContent = favorites.length;
+    }
+
+    function filterByFavorites() {
+      selectCategory('favorites');
+    }
+
+    /* --------------------------------------------------------------------------
+       SEARCH & CATEGORY FILTER
+       -------------------------------------------------------------------------- */
+    let currentCategory = 'all';
+
+    function selectCategory(category) {
+      currentCategory = category;
+      document.querySelectorAll('.pill-btn').forEach(btn => {
+        if (btn.dataset.category === category) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      applyFilters();
+    }
+
+    function filterTools() {
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const query = document.getElementById('tool-search').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.tool-card');
+
+      cards.forEach(card => {
+        const title = card.querySelector('.tool-title').textContent.toLowerCase();
+        const desc = card.querySelector('.tool-desc').textContent.toLowerCase();
+        const categoryString = card.dataset.category || '';
+        const id = card.dataset.id;
+
+        const matchesQuery = title.includes(query) || desc.includes(query);
+        let matchesCat = true;
+
+        if (currentCategory === 'favorites') {
+          matchesCat = favorites.includes(id);
+        } else if (currentCategory !== 'all') {
+          matchesCat = categoryString.includes(currentCategory);
+        }
+
+        if (matchesQuery && matchesCat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    /* --------------------------------------------------------------------------
+       TOAST NOTIFICATION ENGINE
+       -------------------------------------------------------------------------- */
+    let toastTimeout;
+    function showToast(msg) {
+      const toast = document.getElementById('lux-toast');
+      const text = document.getElementById('toast-message');
+      text.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2600);
+    }
+
+    /* --------------------------------------------------------------------------
+       CLIPBOARD COPY HELPERS
+       -------------------------------------------------------------------------- */
+    function copyText(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      const val = el.innerText || el.textContent;
+      if (!val || val.includes("Fill in the inputs") || val.includes("Enter your shorts")) {
+        showToast("Nothing to copy yet!");
+        return;
+      }
+      navigator.clipboard.writeText(val.trim()).then(() => {
+        showToast("Template copied to clipboard!");
+      });
+    }
+
+    function copyList(listId) {
+      const list = document.getElementById(listId);
+      if (!list) return;
+      const items = Array.from(list.querySelectorAll('li span')).map(s => s.innerText.trim());
+      if (items.length === 0) {
+        showToast("No generated items to copy!");
+        return;
+      }
+      navigator.clipboard.writeText(items.join('\n')).then(() => {
+        showToast(`Copied ${items.length} items to clipboard!`);
+      });
+    }
+
+    function copySingleText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Copied to clipboard!");
+      });
+    }
+
+    /* --------------------------------------------------------------------------
+       TOOL 1: TITLE GENERATOR LOGIC
+       -------------------------------------------------------------------------- */
+    function generateTitles() {
+      const rawTopic = document.getElementById('title-topic').value.trim();
+      const style = document.getElementById('title-style').value;
+      const list = document.getElementById('title-results-list');
+
+      if (!rawTopic) {
+        showToast("Please enter a video topic first.");
+        return;
+      }
+
+      const topic = rawTopic.replace(/\b\w/g, l => l.toUpperCase());
+      let templates = [];
+
+      if (style === 'how-to') {
+        templates = [
+          `How to Master ${topic} (Step-by-Step Guide for 2026)`,
+          `How Anyone Can Learn ${topic} in 15 Minutes`,
+          `The Right Way to Do ${topic} (Avoid Beginners Mistakes)`,
+          `How I Perfected ${topic} Without Spending Money`,
+          `The Only ${topic} Guide You Will Ever Need`
+        ];
+      } else if (style === 'listicle') {
+        templates = [
+          `7 Best ${topic} Secrets Nobody Tells You`,
+          `5 Simple ${topic} Habits That Changed Everything`,
+          `Top 10 ${topic} Tools Every Creator Needs in 2026`,
+          `3 Urgent Signs You Need to Change Your ${topic}`,
+          `8 Levels of ${topic}: Ranked from Worst to Best`
+        ];
+      } else if (style === 'curiosity') {
+        templates = [
+          `Why Everyone Is Wrong About ${topic}`,
+          `The Dark Reality of ${topic} Nobody Admits`,
+          `I Quit ${topic} for 30 Days. Here’s What Happened.`,
+          `The Untapped ${topic} Method That Actually Works`,
+          `Stop Doing ${topic} Like This (It’s Costing You)`
+        ];
+      } else if (style === 'challenge') {
+        templates = [
+          `I Tried ${topic} for 7 Days Straight`,
+          `Can You Survive 24 Hours of ${topic}?`,
+          `$10 vs $1,000 ${topic} (The Winner Surprised Me)`,
+          `Rebuilding My Entire ${topic} from Scratch`,
+          `I Forced Myself to Master ${topic} in 48 Hours`
+        ];
+      } else { // mistakes
+        templates = [
+          `The #1 Biggest Mistake People Make in ${topic}`,
+          `Stop Ruining Your ${topic}: 5 Critical Fixes`,
+          `Why 90% of Creators Fail at ${topic}`,
+          `Don't Start ${topic} Before Watching This`,
+          `The Truth About ${topic} I Wish I Knew Sooner`
+        ];
+      }
+
+      list.innerHTML = '';
+      templates.forEach(t => {
+        const li = document.createElement('li');
+        li.className = 'output-list-item';
+        li.innerHTML = `<span>${t}</span><button class="btn btn-outline btn-sm" onclick="copySingleText('${escapeStr(t)}')">Copy</button>`;
+        list.appendChild(li);
+      });
+      showToast("Generated 5 titles!");
+    }
+
+    /* --------------------------------------------------------------------------
+       TOOL 2: DESCRIPTION BUILDER LOGIC
+       -------------------------------------------------------------------------- */
+    function buildDescription() {
+      const title = document.getElementById('desc-title').value.trim() || "Untitled Video Concept";
+      const summary = document.getElementById('desc-summary').value.trim() || "In this video, we break down essential strategies, practical examples, and actionable steps you can implement today.";
+      const cta = document.getElementById('desc-cta').value.trim() || "Grab the resources mentioned: https://yourlink.com";
+
+      const output = document.getElementById('desc-output-box');
+
+      const template = 
+`${summary}
+
+👉 ${cta}
+
+━━━━━━━━━━━━━━━━━━━━━
+⏱️ CHAPTERS & TIMESTAMPS:
+0:00 - Introduction & Key Overview
+1:15 - The Core Problem
+3:45 - Step-by-Step Breakdown
+6:20 - Live Demonstration & Tips
+8:50 - Common Mistakes to Avoid
+10:30 - Final Takeaway & Next Steps
+
+━━━━━━━━━━━━━━━━━━━━━
+💬 JOIN THE COMMUNITY:
+• Subscribe for weekly breakdowns: [Your Channel URL]
+• Follow on Twitter/X: [Your Handle]
+• Join our Discord community: [Your Link]
+
+━━━━━━━━━━━━━━━━━━━━━
+⚙️ GEAR & TOOLS USED:
+• Primary Camera & Lens: [Your Camera]
+• Microphone: [Your Audio Setup]
+• Editing Software: [Your Suite]
+
+━━━━━━━━━━━━━━━━━━━━━
+⚠️ DISCLAIMER:
+The information provided in this video is for educational and informational purposes only. Links included in this description may include affiliate partnerships where we earn a small commission at no extra cost to you.
+
+#YouTubeGrowth #ContentCreator #CreatorStudio`;
+
+      output.textContent = template;
+      showToast("Description template generated!");
+    }
+
+    /* --------------------------------------------------------------------------
+       TOOL 3: TAGS & KEYWORD HELPER LOGIC
+       -------------------------------------------------------------------------- */
+    let currentTags = [];
+
+    function generateTags() {
+      const topic = document.getElementById('tags-input').value.trim().toLowerCase();
+      const box = document.getElementById('tags-output-box');
+
+      if (!topic) {
+        showToast("Please enter a keyword topic.");
+        return;
+      }
+
+      const words = topic.split(/\s+/).filter(Boolean);
+      const root = words.join(' ');
+
+      currentTags = [
+        root,
+        `${root} tutorial`,
+        `${root} guide 2026`,
+        `how to ${root}`,
+        `best ${root}`,
+        `${root} tips`,
+        `${root} for beginners`,
+        `${root} review`,
+        `${root} step by step`,
+        `${root} mistakes`,
+        `${root} hacks`,
+        `learn ${root}`
+      ];
+
+      box.innerHTML = '';
+      const cloud = document.createElement('div');
+      cloud.className = 'tag-cloud';
+
+      currentTags.forEach(tag => {
+        const chip = document.createElement('span');
+        chip.className = 'chip';
+        chip.textContent = tag;
+        cloud.appendChild(chip);
+      });
+
+      box.appendChild(cloud);
+      showToast(`Generated ${currentTags.length} keyword tags!`);
+    }
+
+    function copyCommaTags() {
+      if (!currentTags || currentTags.length === 0) {
+        showToast("No tags to copy yet!");
+        return;
+      }
+      const str = currentTags.join(', ');
+      navigator.clipboard.writeText(str).then(() => {
+        showToast("Copied tags comma-separated!");
+      });
+    }
+
+    /* --------------------------------------------------------------------------
+       TOOL 4: SHORTS HELPER LOGIC
+       -------------------------------------------------------------------------- */
+    function generateShortsIdeas() {
+      const raw = document.getElementById('shorts-topic').value.trim();
+      const box = document.getElementById('shorts-output-box');
+
+      if (!raw) {
+        showToast("Please enter a Shorts topic.");
+        return;
+      }
+
+      const topic = raw.replace(/\b\w/g, l => l.toUpperCase());
+
+      const content = 
+`⚡ HIGH-RETENTION SHORTS TITLES (< 50 chars):
+1. Do NOT Do ${topic} Like This! ❌
+2. The ${topic} Secret Nobody Told You 🤫
+3. 3 Rapid ${topic} Fixes (That Actually Work)
+4. I Tested ${topic} in 30 Seconds! ⏱️
+5. Stop Ignoring This ${topic} Rule ⚠️
+
+🎯 SUGGESTED VISUAL OPENING HOOK (First 2 Seconds):
+"If you are still doing ${raw.toLowerCase()} the normal way, stop scrolling right now..."
+
+🔥 VIRAL VERTICAL HASHTAG STRING:
+#Shorts #${topic.replace(/\s+/g, '')} #YouTubeShorts #QuickTips #LifeHacks #ShortsFeed`;
+
+      box.textContent = content;
+      showToast("Shorts package ready!");
+    }
+
+    /* --------------------------------------------------------------------------
+       TOOL 5: THUMBNAIL TEXT PLANNER LOGIC
+       -------------------------------------------------------------------------- */
+    function generateThumbnailText() {
+      const raw = document.getElementById('thumb-topic').value.trim();
+      const list = document.getElementById('thumb-results-list');
+
+      if (!raw) {
+        showToast("Please enter video premise.");
+        return;
+      }
+
+      const hooks = [
+        "IT WORKED?!",
+        "DON'T DO THIS!",
+        "HUGE MISTAKE",
+        "THE TRUTH",
+        "10X FASTER",
+        "WORTH IT?",
+        "NEVER AGAIN",
+        "FINALLY FIXED"
+      ];
+
+      list.innerHTML = '';
+      hooks.forEach(h => {
+        const li = document.createElement('li');
+        li.className = 'output-list-item';
+        li.innerHTML = `<span><strong>${h}</strong> (Short visual hook)</span><button class="btn btn-outline btn-sm" onclick="copySingleText('${h}')">Copy</button>`;
+        list.appendChild(li);
+      });
+      showToast("Generated thumbnail text hooks!");
+    }
+
+    /* --------------------------------------------------------------------------
+       TOOL 6: HASHTAG GENERATOR LOGIC
+       -------------------------------------------------------------------------- */
+    let currentHashtagsString = "";
+
+    function generateHashtags() {
+      const topic = document.getElementById('hashtag-topic').value.trim().toLowerCase();
+      const box = document.getElementById('hashtag-output-box');
+
+      if (!topic) {
+        showToast("Please enter topic for hashtags.");
+        return;
+      }
+
+      const cleanTopic = topic.replace(/[^a-zA-Z0-9]/g, '');
+      const tags = [
+        `#${cleanTopic}`,
+        `#${cleanTopic}Tips`,
+        `#${cleanTopic}Guide`,
+        `#${cleanTopic}Tutorial`,
+        `#${cleanTopic}2026`,
+        `#CreatorCommunity`,
+        `#YouTubeSEO`,
+        `#TrendingNow`
+      ];
+
+      currentHashtagsString = tags.join(' ');
+
+      box.innerHTML = '';
+      const cloud = document.createElement('div');
+      cloud.className = 'tag-cloud';
+
+      tags.forEach(t => {
+        const chip = document.createElement('span');
+        chip.className = 'chip';
+        chip.textContent = t;
+        cloud.appendChild(chip);
+      });
+
+      box.appendChild(cloud);
+      showToast("Hashtags generated!");
+    }
+
+    function copyHashtags() {
+      if (!currentHashtagsString) {
+        showToast("No hashtags generated yet!");
+        return;
+      }
+      navigator.clipboard.writeText(currentHashtagsString).then(() => {
+        showToast("Copied hashtag string!");
+      });
+    }
+
+    /* --------------------------------------------------------------------------
+       TOOL 7: VIDEO IDEA GENERATOR LOGIC
+       -------------------------------------------------------------------------- */
+    const ideasDatabase = {
+      tech: [
+        { idea: "Day in the Life with Minimalist Tech Setup", hook: "Eliminating all unnecessary gadgets for 1 week." },
+        { idea: "5 Free Open-Source Tools That Replace Paid SaaS", hook: "Saving $200+ a month with better software alternatives." },
+        { idea: "Why I Sold My Flagship Device (And What I Use Now)", hook: "Examining whether premium specs actually matter." },
+        { idea: "The Tech Upgrade Everyone Buys But Nobody Needs", hook: "Unpacking marketing myths vs real performance." },
+        { idea: "Building a Productivity Machine on a $300 Budget", hook: "Thrifting and optimizing hardware for extreme efficiency." }
+      ],
+      gaming: [
+        { idea: "Can You Beat This Entire Game Without Upgrading?", hook: "Imposing strict challenge rules and documenting failure points." },
+        { idea: "The Game That Broke Steam Records Then Disappeared", hook: "Retrospective documentary style on forgotten titles." },
+        { idea: "I Tried Pro Gamer Settings for 48 Hours", hook: "Testing sensitivity, crosshairs, and habits to see if skill changes." },
+        { idea: "Ranking Every Boss from Easiest to Near Impossible", hook: "Categorical tier list with tight gameplay commentary." },
+        { idea: "Why Modern Multiplayer Games Feel Different Now", hook: "Deep dive into matchmaking algorithms and engagement design." }
+      ],
+      vlogging: [
+        { idea: "I Said Yes to Everything for 24 Hours", hook: "Stepping outside personal comfort zone with cinematic pacing." },
+        { idea: "Resetting My Life: Deep Cleaning and Habit Audit", hook: "Aesthetic lifestyle reset with high-contrast before/after." },
+        { idea: "What $100 Buys You in the Most Expensive Neighborhood", hook: "Exploratory city vlog testing value propositions." },
+        { idea: "Quiet Weekend Alone in the Mountains", hook: "ASMR and slow-paced storytelling focusing on atmosphere." },
+        { idea: "Giving Up Social Media for 14 Days (My Real Journal)", hook: "Raw reflection on dopamine, focus, and boredom." }
+      ],
+      education: [
+        { idea: "The Science of Procrastination (And the 2-Minute Fix)", hook: "Visual breakdown explaining neurological friction." },
+        { idea: "How This Forgotten Historical Figure Changed the World", hook: "Micro-history documentary focusing on forgotten events." },
+        { idea: "Visualizing Why Deep Work is 10x More Effective", hook: "Infographic-driven explanation of cognitive flow states." },
+        { idea: "5 Mental Models That Make Difficult Decisions Easy", hook: "Framework application for everyday dilemmas." },
+        { idea: "The Real Reason Humans Fall for Scams (Psychology Breakdown)", hook: "Behavioral analysis with real archived examples." }
+      ],
+      finance: [
+        { idea: "Where $10,000 Actually Goes After Taxes & Expenses", hook: "Visual financial audit detailing cash outflow realities." },
+        { idea: "5 Money Habits Keeping People in the Middle Class", hook: "Direct analysis of lifestyle inflation and silent traps." },
+        { idea: "How I Built My First Low-Maintenance Passive Income Stream", hook: "Realistic, step-by-step breakdown without false hype." },
+        { idea: "Index Funds vs Real Estate: The Real 10-Year Return", hook: "Mathematical modeling of time, fees, and liquidity." },
+        { idea: "The Anti-Budget: How to Save Without Tracking Pennies", hook: "Behavior-driven financial architecture that works automatically." }
+      ],
+      entertainment: [
+        { idea: "Why Movie Trailers Keep Ruining the Entire Plot", hook: "Critique of Hollywood marketing formulas." },
+        { idea: "The Sudden Rise and Fall of This Pop Culture Phenomenon", hook: "Analytical deep dive on a fleeting internet trend." },
+        { idea: "Recreating Iconic Movie Scenes with Household Items", hook: "Fun, high-effort creative test with comic payoff." },
+        { idea: "Ranking the Most Overrated Tropes in Modern Cinema", hook: "Opinionated commentary paired with clip references." },
+        { idea: "How Background Music Secretly Controls Your Emotions", hook: "Audio dissection demonstrating mood changes in real time." }
+      ]
+    };
+
+    function generateVideoIdeas() {
+      const niche = document.getElementById('niche-select').value;
+      const list = document.getElementById('ideas-results-list');
+      const items = ideasDatabase[niche] || ideasDatabase.tech;
+
+      list.innerHTML = '';
+      items.forEach(obj => {
+        const li = document.createElement('li');
+        li.className = 'output-list-item';
+        li.innerHTML = `<span><strong>${obj.idea}</strong><br><small style="color:var(--text-dim);">${obj.hook}</small></span>
+        <button class="btn btn-outline btn-sm" onclick="copySingleText('${escapeStr(obj.idea + " — " + obj.hook)}')">Copy</button>`;
+        list.appendChild(li);
+      });
+
+      showToast("Generated niche ideas!");
+    }
+
+    /* --------------------------------------------------------------------------
+       TOOL 8: TITLE LENGTH CHECKER (LIVE)
+       -------------------------------------------------------------------------- */
+    function checkTitleLength() {
+      const val = document.getElementById('live-title-input').value;
+      const count = val.length;
+      const countEl = document.getElementById('title-char-count');
+      const tagEl = document.getElementById('title-status-tag');
+      const fill = document.getElementById('title-meter-fill');
+      const advice = document.getElementById('title-advice-text');
+
+      countEl.textContent = count;
+      const pct = Math.min(100, (count / 100) * 100);
+      fill.style.width = pct + '%';
+
+      if (count === 0) {
+        tagEl.textContent = "Empty";
+        tagEl.style.color = "var(--text-dim)";
+        fill.style.background = "var(--accent-cyan)";
+        advice.textContent = "Optimal title length is 45 to 65 characters to prevent truncation on YouTube mobile app.";
+      } else if (count < 40) {
+        tagEl.textContent = "Short (Add keywords or hook)";
+        tagEl.style.color = "var(--warning)";
+        fill.style.background = "var(--warning)";
+        advice.textContent = "Your title is quite concise. Make sure it delivers sufficient curiosity or search intent.";
+      } else if (count <= 65) {
+        tagEl.textContent = "Perfect YouTube Safe Zone (45–65)";
+        tagEl.style.color = "var(--success)";
+        fill.style.background = "var(--success)";
+        advice.textContent = "Excellent! This title will display completely across desktop and mobile feeds without ellipsis cutoffs.";
+      } else if (count <= 90) {
+        tagEl.textContent = "Risk of Cutoff on Mobile";
+        tagEl.style.color = "var(--warning)";
+        fill.style.background = "var(--warning)";
+        advice.textContent = "Notice: Characters beyond 65 may get cut off with '...' in the mobile app feed.";
+      } else {
+        tagEl.textContent = "Too Long (Max 100)";
+        tagEl.style.color = "var(--danger)";
+        fill.style.background = "var(--danger)";
+        advice.textContent = "Warning: Approaching or exceeding YouTube's hard 100-character boundary.";
+      }
+    }
+
+    /* --------------------------------------------------------------------------
+       TOOL 9: DESCRIPTION CHARACTER & WORD COUNTER (LIVE)
+       -------------------------------------------------------------------------- */
+    function checkDescMetrics() {
+      const text = document.getElementById('live-desc-input').value;
+      const charCount = text.length;
+      const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+      const lineCount = text === '' ? 0 : text.split(/\r\n|\r|\n/).length;
+
+      // Simple URL regex detection
+      const urlMatches = text.match(/https?:\/\/[^\s]+/g);
+      const linkCount = urlMatches ? urlMatches.length : 0;
+
+      document.getElementById('desc-char-count').textContent = charCount.toLocaleString();
+      document.getElementById('desc-word-count').textContent = wordCount.toLocaleString();
+      document.getElementById('desc-line-count').textContent = lineCount.toLocaleString();
+      document.getElementById('desc-link-count').textContent = linkCount;
+
+      const fill = document.getElementById('desc-meter-fill');
+      const pct = Math.min(100, (charCount / 5000) * 100);
+      fill.style.width = pct + '%';
+
+      if (charCount > 5000) {
+        fill.style.background = "var(--danger)";
+      } else {
+        fill.style.background = "var(--accent-indigo)";
+      }
+    }
+
+    /* --------------------------------------------------------------------------
+       TOOL 10: CHANNEL NAME IDEAS LOGIC
+       -------------------------------------------------------------------------- */
+    function generateChannelNames() {
+      const raw = document.getElementById('channel-keyword').value.trim();
+      const vibe = document.getElementById('channel-vibe').value;
+      const list = document.getElementById('channel-results-list');
+
+      if (!raw) {
+        showToast("Please enter a base name/keyword.");
+        return;
+      }
+
+      const root = raw.replace(/\b\w/g, l => l.toUpperCase());
+      let names = [];
+
+      if (vibe === 'modern') {
+        names = [
+          `${root}Lab`,
+          `${root}Pulse`,
+          `The ${root} Protocol`,
+          `${root} Shift`,
+          `NextGen ${root}`
+        ];
+      } else if (vibe === 'creative') {
+        names = [
+          `${root} Studio`,
+          `${root} Craft`,
+          `Curated ${root}`,
+          `${root} Canvas`,
+          `${root} & Co.`
+        ];
+      } else if (vibe === 'dynamic') {
+        names = [
+          `${root} Unlocked`,
+          `${root} Daily`,
+          `${root} Rush`,
+          `Beyond ${root}`,
+          `${root} Beast`
+        ];
+      } else { // luxury
+        names = [
+          `${root} Lux`,
+          `${root} Society`,
+          `The ${root} Reserve`,
+          `Atelier ${root}`,
+          `Prime ${root}`
+        ];
+      }
+
+      list.innerHTML = '';
+      names.forEach(n => {
+        const li = document.createElement('li');
+        li.className = 'output-list-item';
+        li.innerHTML = `<span><strong>${n}</strong></span><button class="btn btn-outline btn-sm" onclick="copySingleText('${escapeStr(n)}')">Copy</button>`;
+        list.appendChild(li);
+      });
+      showToast("Generated channel name concepts!");
+    }
+
+    /* --------------------------------------------------------------------------
+       UTILITY: STRING ESCAPE FOR INLINE HANDLERS
+       -------------------------------------------------------------------------- */
+    function escapeStr(str) {
+      return str.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+    }
+
+    /* --------------------------------------------------------------------------
+       INITIALIZATION ON LOAD
+       -------------------------------------------------------------------------- */
+    window.addEventListener('DOMContentLoaded', () => {
+      initFavorites();
+      checkTitleLength();
+      checkDescMetrics();
+    });
+  </script>
+</body>
+</html>
